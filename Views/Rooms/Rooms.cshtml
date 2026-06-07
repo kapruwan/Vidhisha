@@ -1,0 +1,118 @@
+@model List<Room>
+
+@{
+    ViewData["Title"] = "Rooms - Chotti Vijini Luxury Hotel";
+}
+
+<div style="margin-top: 80px;"></div>
+
+<!-- Page Header -->
+<section class="page-header bg-dark text-white py-5">
+    <div class="container">
+        <h1 class="display-4">Our Luxurious Rooms</h1>
+        <p class="lead">Thoughtfully Designed for Your Comfort</p>
+    </div>
+</section>
+
+<!-- Coming Soon Banner -->
+<section class="py-3 bg-info text-white text-center">
+    <h4 class="mb-0"><i class="fas fa-hourglass-start"></i> Detailed Pricing Coming Soon - Pre-launch Inquiries Accepted</h4>
+</section>
+
+<!-- Rooms Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Room Categories</h2>
+        <div class="row">
+            @foreach (var room in Model)
+            {
+                <div class="col-lg-4 mb-4">
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="@room.Image" alt="@room.Name" class="img-fluid">
+                            <div class="room-overlay">
+                                <span class="badge bg-success">Premium</span>
+                            </div>
+                        </div>
+                        <div class="room-body">
+                            <h4>@room.Name</h4>
+                            <p class="text-muted mb-3">
+                                <i class="fas fa-mountain"></i> @room.View
+                            </p>
+                            <div class="room-features">
+                                <p><strong>Features:</strong></p>
+                                <p>@room.Facilities</p>
+                            </div>
+                            <div class="room-footer mt-3">
+                                <p class="price">@room.Price</p>
+                                <a href="/Contact" class="btn btn-success btn-sm w-100">
+                                    <i class="fas fa-envelope"></i> Inquire Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Room Amenities Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Standard Amenities in All Rooms</h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="amenity-item">
+                    <i class="fas fa-wifi"></i> High-Speed WiFi
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="amenity-item">
+                    <i class="fas fa-snowflake"></i> Air Conditioning
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="amenity-item">
+                    <i class="fas fa-tv"></i> 32" LED Television
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="amenity-item">
+                    <i class="fas fa-shower"></i> Modern Bathroom
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="amenity-item">
+                    <i class="fas fa-bed"></i> Premium Bedding
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="amenity-item">
+                    <i class="fas fa-mug-hot"></i> Coffee & Tea Maker
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="amenity-item">
+                    <i class="fas fa-door-open"></i> Work Desk
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="amenity-item">
+                    <i class="fas fa-concierge-bell"></i> 24/7 Room Service
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-success text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Experience Mountain Luxury</h2>
+        <p class="lead mb-4">Pre-book or inquire about our exclusive room packages and opening offers.</p>
+        <a href="/Contact" class="btn btn-light btn-lg">
+            <i class="fas fa-envelope"></i> Get Special Offers
+        </a>
+    </div>
+</section>

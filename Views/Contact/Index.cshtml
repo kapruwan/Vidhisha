@@ -1,0 +1,181 @@
+@model Contact
+
+@{
+    ViewData["Title"] = "Contact - Chotti Vijini Luxury Hotel";
+}
+
+<div style="margin-top: 80px;"></div>
+
+<!-- Page Header -->
+<section class="page-header bg-dark text-white py-5">
+    <div class="container">
+        <h1 class="display-4">Contact Us</h1>
+        <p class="lead">We'd Love to Hear From You</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Info -->
+            <div class="col-lg-4 mb-4">
+                <div class="contact-info-card mb-4">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h5>Location</h5>
+                    <p>
+                        Chotti Vijini<br>
+                        Yamkeshwar<br>
+                        Uttarakhand, India
+                    </p>
+                </div>
+
+                <div class="contact-info-card mb-4">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h5>Phone</h5>
+                    <p>+91-XXXX-XXXX-XX</p>
+                </div>
+
+                <div class="contact-info-card mb-4">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h5>Email</h5>
+                    <p>info@chottvijini.com</p>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h5>Hours</h5>
+                    <p>
+                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        Saturday - Sunday: 10:00 AM - 5:00 PM
+                    </p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <div class="contact-form-wrapper">
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle"></i> @TempData["Message"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    <form method="post" action="/Contact/Submit" novalidate>
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter your full name" required>
+                            <span class="text-danger">@Html.ValidationMessage("Name")</span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="Email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter your email" required>
+                                <span class="text-danger">@Html.ValidationMessage("Email")</span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="PhoneNumber" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter your phone number">
+                                <span class="text-danger">@Html.ValidationMessage("PhoneNumber")</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Message" class="form-label">Message <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="Message" name="Message" rows="5" placeholder="Tell us about your inquiry..." required></textarea>
+                            <span class="text-danger">@Html.ValidationMessage("Message")</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location Map Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Our Location</h2>
+        <div class="map-container">
+            <div class="placeholder-image">
+                <img src="https://via.placeholder.com/800x400?text=Google+Maps+Location" alt="Location Map" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Frequently Asked Questions</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="accordionFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                When will the hotel open?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                Chotti Vijini is expected to open in 6 months. Construction is currently 65% complete and progressing rapidly.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                Can I book now?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                Pre-launch inquiries are being accepted. Formal bookings will commence once the hotel is ready for operations. Leave us your details to be notified first.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                Are you available for destination weddings?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                Yes! Chotti Vijini is designed to be a perfect destination wedding venue. Contact us for customized wedding packages and event planning.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                How far is it from Rishikesh?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                Chotti Vijini is located approximately 1 hour from Rishikesh, making it easily accessible while offering complete peace and tranquility.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

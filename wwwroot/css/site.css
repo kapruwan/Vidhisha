@@ -19,4 +19,524 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000000;
+  background-color: #f5f9f6;
+}
+
+/* === HERO SECTION === */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x600?text=Mountain+Hero') center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  margin-top: 60px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 1s ease-in;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-in;
+}
+
+.hero-buttons {
+  animation: fadeInUp 1.2s ease-in;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === NAVIGATION === */
+.navbar {
+  background-color: #1a1a1a !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: white !important;
+}
+
+.nav-link {
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #28a745 !important;
+  transform: translateY(-2px);
+}
+
+/* === FOOTER === */
+.footer {
+  background-color: #1a1a1a;
+  color: white;
+  margin-top: auto;
+  border-top: 3px solid #28a745;
+}
+
+.footer a {
+  color: #28a745;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: #20c997;
+  text-decoration: underline;
+}
+
+/* === SECTION STYLING === */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #28a745, #20c997);
+  border-radius: 2px;
+}
+
+.opening-banner {
+  background-color: #ffc107;
+  color: #1a1a1a;
+  font-weight: 600;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* === HIGHLIGHTS SECTION === */
+.highlights {
+  margin-top: 20px;
+}
+
+.highlight-item {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid #28a745;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.highlight-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.2);
+}
+
+.highlight-item i {
+  margin-right: 10px;
+}
+
+/* === FACILITIES CARDS === */
+.facility-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #28a745;
+  height: 100%;
+}
+
+.facility-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(40, 167, 69, 0.2);
+}
+
+.facility-icon {
+  font-size: 3rem;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+.facility-card h4 {
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* === ROOM CARDS === */
+.room-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.room-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.room-card:hover .room-image img {
+  transform: scale(1.05);
+}
+
+.room-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.room-body {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-body h4 {
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.room-features {
+  flex-grow: 1;
+}
+
+.room-footer {
+  border-top: 1px solid #e9ecef;
+  padding-top: 15px;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+/* === BENEFIT CARDS === */
+.benefit-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-bottom: 4px solid #28a745;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+/* === CONTACT FORM === */
+.contact-form-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  color: #000000;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  color: #000000;
+}
+
+/* === CONTACT INFO CARDS === */
+.contact-info-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #28a745;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.contact-info-card h5 {
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* === PAGE HEADER === */
+.page-header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+  margin-top: 60px;
+}
+
+.page-header h1 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.page-header .lead {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* === AMENITY ITEMS === */
+.amenity-item {
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.amenity-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 3px 8px rgba(40, 167, 69, 0.15);
+}
+
+.amenity-item i {
+  margin-right: 10px;
+  color: #28a745;
+}
+
+/* === CONSTRUCTION INFO === */
+.construction-info {
+  border-left: 5px solid #ffc107;
+}
+
+.vision-item {
+  transition: all 0.3s ease;
+}
+
+.vision-item:hover {
+  transform: scale(1.05);
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  min-height: calc(100vh - 60px);
+  padding-bottom: 50px;
+}
+
+/* === CTA SECTION === */
+.cta-section {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+}
+
+.cta-section h2 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-section .lead {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* === BUTTONS === */
+.btn {
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #20c997;
+  border-color: #20c997;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.btn-outline-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.btn-light {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.btn-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* === ACCORDION === */
+.accordion-button {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #f0f0f0;
+  color: #28a745;
+}
+
+.accordion-button:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .contact-form-wrapper {
+    padding: 20px;
+  }
+  
+  .hero-section {
+    height: 50vh;
+  }
+}
+
+/* === UTILITY CLASSES === */
+.text-success {
+  color: #28a745 !important;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.badge.bg-success {
+  background-color: #28a745 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+a {
+  color: #000000;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #28a745;
 }
