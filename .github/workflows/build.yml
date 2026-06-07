@@ -1,30 +1,38 @@
+name: .NET Core CI/CD
 
-name: .NET Core CI
-
-# 1. Trigger this workflow every time someone pushes to the "main" branch
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build:
-    # 2. Tell GitHub to use a virtual Linux machine
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # 3. Copy the code from your repository onto the virtual machine
+    # 1. Fetch your code
     - uses: actions/checkout@v4
 
-    # 4. Install the .NET 8 SDK on that virtual machine
+    # 2. Setup .NET 8
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
-    # 5. Restore any required dependencies (packages)
+    # 3. Restore and compile the project
     - name: Restore dependencies
       run: dotnet restore
 
-    # 6. Build/Compile the project to make sure there are no errors
-    - name: Build the app
-      run: dotnet build --no-restore
+    # 4. Compile and bundle the app into a "publish" folder
+    # This turns your human-readable C# code into optimized server files
+    - name: Publish the app
+      run: dotnet publish -c Release -o ./publish
+
+    # 5. THE CD STEP: Upload the "publish" folder to MonsterASP.NET via FTP
+    - name: Deploy to MonsterASP.NET
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./publish/
+        server-dir: /wwwroot/  # MonsterASP uses wwwroot as the default web directory
