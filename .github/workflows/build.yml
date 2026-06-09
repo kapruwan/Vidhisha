@@ -9,31 +9,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Fetch your code
     - uses: actions/checkout@v4
 
-    # 2. Setup .NET 8
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
-    # 3. Restore and compile the project
     - name: Restore dependencies
       run: dotnet restore
 
-    # 4. Compile and bundle the app into a "publish" folder
-    # This turns your human-readable C# code into optimized server files
     - name: Publish the app
       run: dotnet publish -c Release -o ./publish
 
-    # 5. THE CD STEP: Upload the "publish" folder to MonsterASP.NET via FTP
     - name: Deploy to MonsterASP.NET
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftps
         local-dir: ./publish/
-        server-dir: /
+        server-dir: wwwroot/
+        dangerous-clean-slate: true
         state-name: .ftp-deploy-sync-state.json
