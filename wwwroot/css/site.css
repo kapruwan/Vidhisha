@@ -26,8 +26,9 @@ body {
 
 /* === HERO SECTION === */
 .hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x600?text=Mountain+Hero') center/cover;
-  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/Images/banner.png') center/cover no-repeat;
+  background-size: cover;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -428,6 +429,7 @@ body {
 .cta-section {
   background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
   color: white;
+  margin-top: 50px;
 }
 
 .cta-section h2 {
