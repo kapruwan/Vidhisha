@@ -35,4 +35,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./publish/
-        server-dir: /wwwroot/  # MonsterASP uses wwwroot as the default web directory
+        server-dir: /site/wwwroot/ # MonsterASP uses wwwroot as the default web directory
