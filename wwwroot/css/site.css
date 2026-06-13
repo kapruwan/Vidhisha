@@ -12,13 +12,17 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+:root {
+  --footer-height: 120px; /* fallback, will be updated by JS */
+}
+
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 0; /* reserved via main-content padding */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #000000;
   background-color: #f5f9f6;
@@ -421,8 +425,8 @@ body {
 
 /* === MAIN CONTENT === */
 .main-content {
-  min-height: calc(100vh - 60px);
-  padding-bottom: 50px;
+  min-height: calc(100vh - var(--footer-height));
+  padding-bottom: var(--footer-height);
 }
 
 /* === CTA SECTION === */
@@ -430,6 +434,13 @@ body {
   background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
   color: white;
   margin-top: 50px;
+  position: relative;
+  z-index: 5; /* ensure sits above lower elements if needed */
+}
+
+.vision-section {
+  position: relative;
+  z-index: 1;
 }
 
 .cta-section h2 {
