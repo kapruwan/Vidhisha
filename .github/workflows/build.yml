@@ -36,3 +36,6 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./publish/
         server-dir: /wwwroot/ # MonsterASP uses wwwroot as the default web directory
+        protocol: ftp
+        port: 21
+        timeout: 60000
